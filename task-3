@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Manager App</title>
+  <style>
+    :root{--bg:#f4f7fb;--card:#ffffff;--accent:#2b6cb0;--danger:#e53e3e}
+    *{box-sizing:border-box;font-family:Inter, system-ui, Arial, sans-serif}
+    body{
+      margin:0;
+      background:linear-gradient(135deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.4) 100%),url('data:image/jpeg;base64,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');
+      background-size:cover;
+      background-attachment:fixed;
+      background-position:center;
+      color:#fff;
+      padding:24px;
+      min-height:100vh
+    }
+    .container{max-width:900px;margin:0 auto}
+    h1{margin-bottom:12px;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.2)}
+    .card{background:rgba(255,255,255,0.95);padding:16px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.1);margin-bottom:16px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2)}
+    label{display:block;margin-top:8px;font-weight:600;color:#222}
+    h2{color:#222;text-shadow:0 1px 2px rgba(0,0,0,0.1)}
+    input[type=text], textarea, #filterInput, #cityInput{width:100%;padding:8px;margin-top:6px;border:1px solid #dfe7ef;border-radius:6px}
+    button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;margin-top:10px;font-weight:600;transition:all 0.3s ease}
+    button:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.2)}
+    .controls{display:flex;gap:8px;align-items:center}
+    .controls input{flex:1}
+    .tasks .task{border:1px solid #e6eef8;padding:10px;border-radius:6px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+    .task .meta{max-width:78%}
+    .task h3{margin:0;font-size:16px}
+    .task p{margin:6px 0 0 0;color:#334155}
+    .task .actions{display:flex;gap:8px}
+    .btn-delete{background:var(--danger)}
+    .weather{margin-top:10px;padding:8px;border-radius:6px;background:#f0f7ff;border:1px solid #d7e9ff}
+    .small{font-size:14px;color:#475569}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Task Manager App</h1>
+
+    <section class="card">
+      <h2>Add Task</h2>
+      <form id="taskForm" onsubmit="handleAddTask(event)">
+        <label for="taskName">Task Name</label>
+        <input type="text" id="taskName" required />
+
+        <label for="taskDesc">Description</label>
+        <textarea id="taskDesc" rows="3"></textarea>
+
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Tasks</h2>
+      <div class="controls">
+        <input id="filterInput" placeholder="Filter tasks by keyword" />
+        <button id="showAllBtn">Show All</button>
+      </div>
+      <div id="tasksList" class="tasks"></div>
+    </section>
+
+    <section class="card">
+      <h2>Weather</h2>
+      <div class="weather-controls">
+        <input id="cityInput" placeholder="Enter city name" />
+        <button id="getWeatherBtn">Get Weather</button>
+      </div>
+      <div id="weatherResult" class="weather"></div>
+    </section>
+
+  </main>
+
+  <script>
+    /* Task Manager App - All in One */
+    let tasks = [];
+
+    // Elements
+    const taskForm = document.getElementById('taskForm');
+    const taskName = document.getElementById('taskName');
+    const taskDesc = document.getElementById('taskDesc');
+    const tasksList = document.getElementById('tasksList');
+    const filterInput = document.getElementById('filterInput');
+    const showAllBtn = document.getElementById('showAllBtn');
+    const cityInput = document.getElementById('cityInput');
+    const getWeatherBtn = document.getElementById('getWeatherBtn');
+    const weatherResult = document.getElementById('weatherResult');
+
+    // Load tasks from localStorage
+    function loadTasks(){
+      const raw = localStorage.getItem('tasks');
+      if(raw){
+        try{ tasks = JSON.parse(raw); }catch(e){ tasks = []; }
+      }
+    }
+
+    // Save tasks
+    function saveTasks(){
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    // Render tasks (optionally provide a list)
+    function renderTasks(list = tasks){
+      tasksList.innerHTML = '';
+
+      // Use map() as required — build DOM nodes from task objects
+      const nodes = list.map(task => {
+        const wrap = document.createElement('div');
+        wrap.className = 'task';
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        const h = document.createElement('h3');
+        h.textContent = task.name;
+        const p = document.createElement('p');
+        p.textContent = task.description || '';
+        meta.appendChild(h);
+        meta.appendChild(p);
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const del = document.createElement('button');
+        del.textContent = 'Delete';
+        del.className = 'btn-delete';
+        del.onclick = () => deleteTask(task.id);
+
+        actions.appendChild(del);
+
+        wrap.appendChild(meta);
+        wrap.appendChild(actions);
+
+        return wrap;
+      });
+
+      nodes.forEach(n => tasksList.appendChild(n));
+    }
+
+    // Add task handler — wired with onsubmit in HTML
+    function handleAddTask(ev){
+      ev.preventDefault(); // prevent page reload
+
+      const name = taskName.value.trim();
+      const description = taskDesc.value.trim();
+      if(!name) return;
+
+      const newTask = { id: Date.now(), name, description };
+      tasks.push(newTask);
+      saveTasks();
+      renderTasks();
+
+      taskForm.reset();
+    }
+
+    // Delete a task
+    function deleteTask(id){
+      tasks = tasks.filter(t => t.id !== id);
+      saveTasks();
+      renderTasks();
+    }
+
+    // Filter tasks
+    function applyFilter(){
+      const q = filterInput.value.trim().toLowerCase();
+      if(!q){ renderTasks(); return; }
+      const filtered = tasks.filter(t => (t.name + ' ' + (t.description||'')).toLowerCase().includes(q));
+      renderTasks(filtered);
+    }
+
+    // Weather feature using Open-Meteo (no API key)
+    async function getWeatherForCity(city){
+      weatherResult.textContent = 'Loading...';
+      try{
+        // Geocoding
+        const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`);
+        if(!geoRes.ok) throw new Error('Location lookup failed');
+        const geo = await geoRes.json();
+        if(!geo.results || geo.results.length === 0) throw new Error('City not found');
+        const loc = geo.results[0];
+
+        // Weather
+        const wRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&current_weather=true&temperature_unit=celsius`);
+        if(!wRes.ok) throw new Error('Weather fetch failed');
+        const w = await wRes.json();
+        if(!w.current_weather) throw new Error('No weather data');
+
+        weatherResult.innerHTML = `<div><strong>${loc.name}, ${loc.country}</strong></div><div class="small">Temperature: ${w.current_weather.temperature} °C</div>`;
+      }catch(err){
+        weatherResult.textContent = 'Error: ' + err.message;
+      }
+    }
+
+    // Event wiring
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTasks();
+      renderTasks();
+
+      filterInput.addEventListener('input', applyFilter);
+      showAllBtn.addEventListener('click', () => { filterInput.value = ''; renderTasks(); });
+
+      getWeatherBtn.addEventListener('click', () => {
+        const city = cityInput.value.trim();
+        if(!city) return;
+        getWeatherForCity(city);
+      });
+    });
+
+    // Expose handler used in HTML onsubmit
+    window.handleAddTask = handleAddTask;
+  </script>
+</body>
+</html>
